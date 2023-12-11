@@ -592,6 +592,16 @@ struct t8_eclass_scheme
   t8_element_successor (const t8_element_t *t, t8_element_t *s, int level) const
     = 0;
 
+  /** Compute the integer coordinates of a given element vertex.
+   *   \param [in] elem   The element to be considered.
+   *   \param [in] vertex The id of the vertex whose coordinates shall be computed.
+   *   \param [out] coords An array of at least as many integers as the element's dimension
+   *                      whose entries will be filled with the coordinates of \a vertex.
+   */
+  virtual void
+  t8_element_vertex_coords (const t8_element_t *t, const int vertex, int coords[]) const
+   = 0;
+
   /** Compute the coordinates of a given element vertex inside a reference tree
    *  that is embedded into [0,1]^d (d = dimension).
    *   \param [in] t      The element to be considered.
